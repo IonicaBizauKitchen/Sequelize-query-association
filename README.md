@@ -1,0 +1,1 @@
+# Sequelize-query-association
