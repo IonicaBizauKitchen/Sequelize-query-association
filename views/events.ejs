@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+     <% include frontend.ejs %>
+  </head>
+  <body>
+	 <% include navbar.ejs %>
+	 <div class="container">
+					<div style="padding-top:75px;"  class="col-md-12">
+						 <h2><%= number %> Evenimente Create</h2>	 
+							<div align="right"><a class="btn " id="addValue"  style="background-color:#8B0000; color:white;" href="/events/add">Adauga Eveniment</a></div> <br/>
+					</div>
+					 <div class="row" >
+					 <table class="table" >
+						 <tr>
+						 <th>Titlu </th>
+						 <th>Descriere</th>
+						 <th>Data</th>
+						 <th>Locuri Disponibile</th>
+						 <th>Imagine</th>
+						 <th>Detalii</th>
+						 <th style="width: 100px" ></th>
+						 </tr>
+						 <% Object.keys(data).forEach(function (id) {
+                    var event = data[id]; %>		
+						 <tr>
+						 <td><%=event.title%> </td>
+						 <td><%=event.description%></td>
+						 <td><%=event.date%></td>
+						 <td><%=event.availabletickets %></td>
+						 <td><a href="#">See image</a></td>
+						 <td>
+							<a href="#" class="btn btn-default glyphicon glyphicon-eye-open" style="color:#8B0000; " ></a>
+						 </td>
+					   <td>
+							<a href="/events/edit/<%=event.id %>" class="btn btn-default glyphicon glyphicon-pencil" style="color:#8B0000;" ></a>
+							<a href="/events/delete/<%=event.id %>" class="btn btn-default glyphicon glyphicon-trash"  style="color:#8B0000;"></a>
+						 </td>
+					</tr>
+						   <% });%>
+					 </table>
+				</div>
+	 </div>
+    </body>
+</html>

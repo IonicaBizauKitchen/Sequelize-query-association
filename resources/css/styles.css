@@ -1,0 +1,13 @@
+ #mycontainer{
+            padding-top:5%;
+            padding-bottom:5%;
+            background-image: url(../chart.png);
+            background-repeat:no-repeat;
+            opacity:0.01 !important;
+            position: relative;
+             background-position: center 0% ;
+        }
+        
+    .here{
+            opacity: 0.9;
+        }

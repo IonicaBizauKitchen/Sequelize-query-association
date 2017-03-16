@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include frontend.ejs %>
+    <title> Millesime Admin | <%= pagetitle %> </title>
+  </head>
+  <body>
+    <% include navbar.ejs %>
+    <div class="container" style="margin-top:75px; ">
+    <h2><%= pagetitle %> </h2>
+    <hr>
+		<!-- use enctype="multipart/form-data" when uploading files to server, so that no characters will be encoded.-->
+  <form method="post" action="/events/edit"> <!--enctype="multipart/form-data"  -pentru upload -->
+      <input type="hidden" value="<%= id %>" name="id" />
+			<div class="container">
+        <div class="col-md-12 ">
+        <div class="row">
+          <div class="col-md-12 ">
+				
+              <input class="form-control" type="text" name="title" id="title" value="<%= title %>"  placeholder="Titlu Eveniment" required="true"> 
+              <p style="color:#8B0000;"><small>*Camp obligatoriu</small></p>
+              <textarea  rows=7 class="form-control" type="text"  name="description"  id="description"  placeholder="Descriere Eveniment"><%= description %></textarea> <br>
+              <input class="form-control" type="text" name="availabletickets" id="availabletickets"  value="<%= availabletickets %>"placeholder="Numar locuri disponibile"> <br>
+            <label> Data:<%= newdate %> </label> <br/>
+						  <label>Schimbati data evenimentului:</label>
+              <input class="form-control" type="date" name="date" id="date" style="width:190px;" ><br> 
+          <!--   <label>Alegeti o imagine:</label>-->
+            <!--  <input  type="file" name="image" id="image" required="true">
+			  <p style="color:#8B0000;"><small>*Incarcarea imaginii este obligatorie </small></p>-->
+               <button class="btn" id="addValue" style="background-color:#8B0000; color:white;">Salveaza modificarile</button>&nbsp; 
+               <button class="btn btn-warning">Anuleaza</button>
+            </div>
+          </div>
+         </div>
+        </div>
+     </form>
+    </div>
+  </body>
+      
+      
