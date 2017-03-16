@@ -1,4 +1,4 @@
-//var EventUser = require('./event_user_model.js');
+var EventUser = require('./event_user_model.js');
 var Event= require('./events_model.js');
 var Sequelize = require('sequelize');
 var sequelize = require('./sequelize');
@@ -57,10 +57,10 @@ var User = sequelize.define('user', {
 
 // 1.  N Users - N Events (N-N)
 
-//User.belongsToMany(Event, { through: EventUser });
+User.belongsToMany(Event, { through: EventUser });
 //____________________________________________________________________________________________
 
-User.sync().then(function () { //sync only creates table; cannot update them  //detele  force: true when in production
+User.sync({force:true}).then(function () { //sync only creates table; cannot update them  //detele  force: true when in production
   return User.create({
     //id:'ORD0',
     username: 'username',

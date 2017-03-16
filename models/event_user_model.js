@@ -1,4 +1,4 @@
-var User = require('./users_model.js');
+//var User = require('./users_model.js');
 var Event= require('./events_model.js');
 var Sequelize = require('sequelize');
 var sequelize = require('./sequelize');
@@ -16,8 +16,12 @@ var EventUser = sequelize.define('eventuser', {
 });
 
 //___________________________________Establish relationships with other tables_______________________________________
-EventUser.belongsTo(Event);
-EventUser.belongsTo(User);
+//EventUser.belongsTo(Event);
+//EventUser.belongsTo(User);
+
+//User.belongsToMany(Event, { through: EventUser });
+//Event.belongsToMany(User, { through: EventUser });
+
 //________________________________________Create table_______________________________________________________________
 
 EventUser.sync().then(function () {

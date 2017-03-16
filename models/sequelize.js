@@ -1,6 +1,6 @@
 var Sequelize = require('sequelize');
 
-var sequelize = new Sequelize( 'millesime_admin', 'root', '',
+var sequelize = new Sequelize( 'newdb', 'root', '',
     {
         host: 'localhost',
         dialect: 'mysql',
