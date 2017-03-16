@@ -1,5 +1,4 @@
 var EventUser = require('./event_user_model.js');
-var Event= require('./events_model.js');
 var Sequelize = require('sequelize');
 var sequelize = require('./sequelize');
 //_______________________________________________Declare table structure ______________________________________________
@@ -7,7 +6,7 @@ var sequelize = require('./sequelize');
 var User = sequelize.define('user', {
   //id: {
   //  type: Sequelize.STRING,
-  //  primaryKey: true, 
+  //  primaryKey: true,
   //  },
   username: {
     type: Sequelize.STRING,
@@ -15,7 +14,7 @@ var User = sequelize.define('user', {
   lastname: {
     type: Sequelize.STRING
   },
-  password: { 
+  password: {
     type: Sequelize.STRING,
 
   },
@@ -47,17 +46,16 @@ var User = sequelize.define('user', {
   },
   activeAccount:{
     //type:Sequelize.BOOLEAN
-    type: Sequelize.STRING 
+    type: Sequelize.STRING
   },
 }, {
-  freezeTableName: true 
+  freezeTableName: true
 });
 
 //___________________________________Establish relationships with other tables____________________
 
 // 1.  N Users - N Events (N-N)
 
-User.belongsToMany(Event, { through: EventUser });
 //____________________________________________________________________________________________
 
 User.sync({force:true}).then(function () { //sync only creates table; cannot update them  //detele  force: true when in production
@@ -75,7 +73,7 @@ User.sync({force:true}).then(function () { //sync only creates table; cannot upd
     paidCurrentFee: true,
     LastFeePayDate: new Date(2017, 2,14),
     activeAccount: 'active',//true,
-  
+
   });
 }).then(c => {
     console.log("User Created", c.toJSON());
